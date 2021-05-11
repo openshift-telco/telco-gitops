@@ -1,0 +1,38 @@
+---
+# FlexRAN example
+apiVersion: ptp.openshift.io/v1
+kind: PtpConfig
+metadata:
+  name: slave-config0
+  namespace: openshift-ptp
+spec:
+  profile:
+    - name: "slave-config0"
+      interface: "ens2f0"
+      ptp4lOpts: "-s --summary_interval -4"
+      phc2sysOpts: "-a -r -n 24"
+      ptp4lConf: |
+         [global]
+         #
+         # Default Data Set
+         #
+         priority1 128
+         domainNumber 24
+         boundary_clock_jbod 1
+         logAnnounceInterval -3
+         delay_mechanism E2E
+         network_transport L2
+         tx_timestamp_timeout 20
+         dataset_comparison G.8275.x
+         time_stamping hardware
+         clockClass 255
+         logSyncInterval -4
+         logMinDelayReqInterval -4
+         summary_interval 1
+         priority2 128
+         clock_servo linreg
+  recommend:
+    - profile: "slave-config0"
+      priority: 1
+      match:
+        - nodeLabel: "ran.openshift.io/ptp-config0-ens2f0"

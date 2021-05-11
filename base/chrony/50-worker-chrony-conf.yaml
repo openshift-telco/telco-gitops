@@ -1,0 +1,18 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  name: 50-worker-chrony-conf
+  labels:
+    machineconfiguration.openshift.io/role: worker
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    storage:
+      files:
+      - contents:
+          source: data:text/plain;charset=utf-8;base64,IyBDaHJvbnkgY29uZmlnIG9wdGltaXplZCBmb3IgY29udHJvbCBwbGFuZQpkcmlmdGZpbGUgL3Zhci9saWIvY2hyb255L2RyaWZ0CiMgQnkgZGVmYXVsdCwgY2hyb255ZCBhY2NlbGVyYXRlcyBvciBzbG93cyB0aGUgc3lzdGVtIGNsb2NrIHRvIGZpeCBhbnkgdGltZSBkcmlmdC4KIyBJZiB0aGUgZHJpZnQgaXMgdG9vIGJpZywgY2hyb255IGZhaWxzIHRvIGZpeCB0aGUgZHJpZnQuIFRvIG92ZXJjb21lIHRoaXMsCiMgdXBkYXRlIGNocm9ueS5jb25mIHRvIGZvcmNlIGEgdGltZSBzeW5jIGlmIHRoZSBkcmlmdCBleGNlZWRzIHRoZSB0aHJlc2hvbGQgc3BlY2lmaWVkLgptYWtlc3RlcCAxLjAgLTEKcnRjc3luYwpsb2dkaXIgL3Zhci9sb2cvY2hyb255CiMgTlRQIFNlcnZlcnMKI2tleWZpbGUgL2V0Yy9jaHJvbnkua2V5cwojc2VydmVyIG50cC5leGFtcGxlLmNvbSBpYnVyc3QKcG9vbCAyLnJoZWwucG9vbC5udHAub3JnIGlidXJzdApwb29sIDIuZmVkb3JhLnBvb2wubnRwLm9yZyBpYnVyc3Q=
+          verification: {}
+        filesystem: root
+        mode: 420
+        path: /etc/chrony.conf

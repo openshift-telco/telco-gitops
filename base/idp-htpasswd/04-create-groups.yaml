@@ -1,0 +1,23 @@
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Administrators 
+users:
+- telcoadmin
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Operations 
+users:
+- operations
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Vendors 
+users:
+- vendorcnf1
+- vendorcnf2
+- vendorcnf3

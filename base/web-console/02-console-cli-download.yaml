@@ -1,0 +1,17 @@
+---
+# https://docs.openshift.com/container-platform/4.6/web_console/customizing-the-web-console.html#creating-custom-CLI-downloads_customizing-web-console
+apiVersion: console.openshift.io/v1
+kind: ConsoleCLIDownload
+metadata:
+  name: example-cli-download-links-for-foo
+spec:
+  description: |
+    This is an example of download links for foo
+  displayName: example-foo
+  links:
+  - href: 'https://www.example.com/public/foo.tar'
+    text: foo for linux
+  - href: 'https://www.example.com/public/foo.mac.zip'
+    text: foo for mac
+  - href: 'https://www.example.com/public/foo.win.zip'
+    text: foo for windows

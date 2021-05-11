@@ -1,0 +1,47 @@
+---
+# NOTE: This configuration must be updated to correct path
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  name: 50-set-selinux-for-hostpath-provisioner-ran-cu
+  labels:
+    machineconfiguration.openshift.io/role: ran-cu
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    systemd:
+      units:
+        - contents: |
+            [Unit]
+            Description=Set SELinux chcon for hostpath provisioner
+            Before=kubelet.service
+            [Service]
+            Type=oneshot
+            RemainAfterExit=yes
+            ExecStartPre=-mkdir -p /var/ocpvirtvms
+            ExecStart=/usr/bin/chcon -Rt container_file_t /var/ocpvirtvms
+            [Install]
+            WantedBy=multi-user.target
+          enabled: true
+          name: hostpath-provisioner.service
+---
+apiVersion: hostpathprovisioner.kubevirt.io/v1beta1
+kind: HostPathProvisioner
+metadata:
+  name: hostpath-provisioner
+  namespace: openshift-cnv
+spec:
+  imagePullPolicy: IfNotPresent
+  pathConfig:
+    path: "/var/ocpvirtvms"
+    useNamingPrefix: false
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: hostpath-provisioner
+  namespace: openshift-cnv
+provisioner: kubevirt.io/hostpath-provisioner
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer

@@ -1,0 +1,7 @@
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: CDIConfig
+metadata:
+  name: config
+spec:
+  scratchSpaceStorageClass: ocs-storagecluster-ceph-rbd

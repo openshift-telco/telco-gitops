@@ -1,0 +1,24 @@
+---
+apiVersion: hco.kubevirt.io/v1beta1
+kind: HyperConverged
+metadata:
+  name: kubevirt-hyperconverged
+  namespace: openshift-cnv
+spec:
+  BareMetalPlatform: true
+  infra:
+    nodePlacement:
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+      - effect: NoSchedule
+        key: "node-role.kubernetes.io/master"
+        operator: Exists
+  workloads:
+    nodePlacement:
+      nodeSelector:
+        ran.openshift.io/ocpvirt: ""
+      tolerations:
+      - effect: NoSchedule
+        key: "ran.openshift.io/ocpvirt"
+        operator: Exists

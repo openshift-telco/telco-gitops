@@ -1,0 +1,29 @@
+---
+apiVersion: fpga.intel.com/v1
+kind: N3000Cluster
+metadata:
+  name: n3000
+  namespace: vran-acceleration-operators
+spec:
+  nodes:
+    - nodeName: node1.png.intel.com
+      fpga:
+        - userImageURL: http://10.10.10.122:8000/pkg/sr_vista_rot_2x2x25-v1.3.16.bin
+          PCIAddr: 0000:1b:00.0
+          checksum: "0b0a87b974d35ea16023ceb57f7d5d9c"
+      fortville:
+        firmwareURL: http://10.10.10.122:8000/7.00/700Series_NVMDowngradePackage_v7_00_Linux.tar.gz
+        checksum: "0b0a87b974d35ea16023ceb57f7d5d9d"
+        MACs:
+          - MAC: 64:4c:36:12:61:d9
+    - nodeName: node2.png.intel.com
+      fpga:
+        - userImageURL: http://10.10.10.122:8000/pkg/sr_vista_rot_2x2x25-v1.3.16.bin
+          PCIAddr: 0000:1b:00.0
+          checksum: "0b0a87b974d35ea16023ceb57f7d5d9c"
+    - nodeName: node3.png.intel.com
+      fortville:
+        firmwareURL: http://10.10.10.122:8000/7.00/700Series_NVMDowngradePackage_v7_00_Linux.tar.gz
+        checksum: "0b0a87b974d35ea16023ceb57f7d5d9d"
+        MACs:
+          - MAC: 64:4c:36:12:61:d3

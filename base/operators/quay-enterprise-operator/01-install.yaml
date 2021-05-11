@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    openshift.io/cluster-monitoring: "true"
+  name: quay-enterprise
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: quay-operator
+  namespace: quay-enterprise
+spec:
+  targetNamespaces:
+  - quay-enterprise
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: quay-operator
+  namespace: quay-enterprise
+spec:
+  sourceNamespace: openshift-marketplace
+  # Modify source name of the catalogsource for air-gapped deployments
+  source: redhat-operators
+  channel: quay-v3.5
+  installPlanApproval: Automatic
+  name: quay-operator

@@ -1,0 +1,26 @@
+---
+# https://docs.openshift.com/container-platform/4.6/web_console/configuring-web-console.html
+# https://docs.openshift.com/container-platform/4.6/web_console/customizing-the-web-console.html
+# https://docs.openshift.com/container-platform/4.6/web_console/disabling-web-console.html
+apiVersion: config.openshift.io/v1
+kind: Console
+metadata:
+  name: cluster
+spec:
+  # Removed, (Managed) or Umanaged
+  managementState: Removed
+  logLevel: Normal
+  operatorLogLevel: Normal
+  # route:
+  #   # https://docs.openshift.com/container-platform/4.6/web_console/customizing-the-web-console.html#customizing-the-web-console-url_customizing-web-console
+  #   hostname: console.example.com
+  # authentication:
+  #   logoutRedirect: "" 
+  # customization:
+  #   customLogoFile:
+  #     # max-height 60px
+  #     key: console-custom-logo.png
+  #     name: console-custom-logo
+  #   customProductName: RAN Automation
+# status:
+#   consoleURL: "" 

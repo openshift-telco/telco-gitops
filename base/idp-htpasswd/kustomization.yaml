@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  # Annotations to work around automatically generated resoruces
+  # to avoid ArgoCD reporing out-of-sync
+  annotations:
+    argcd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+
+resources:
+- 01-htpasswd-secret-example.yaml
+- 02-htpasswd-idp.yaml
+- 03-cluster-admin-telcoadmin.yaml
+- 04-create-groups.yaml
+- 05-cluster-admin-to-administrators.yaml

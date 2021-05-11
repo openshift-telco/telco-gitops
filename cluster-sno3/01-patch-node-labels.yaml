@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Node
+metadata:
+    name: sno3
+    labels:
+        # ran.openshift.io/sriov: ""
+        # ran.openshift.io/lso: ""
+        ran.openshift.io/ptp: ""

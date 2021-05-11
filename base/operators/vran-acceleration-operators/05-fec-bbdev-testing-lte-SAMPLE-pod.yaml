@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fec-bbdev-testing-lte
+  namespace: vran-acceleration-operators
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/ran-du: ""
+  containers:
+    - name: test
+      image: myregistry.server.com:5000/intel/fec_container:latest
+      imagePullPolicy: Always
+      command: [ "/bin/bash", "-c", "--" ]
+      args: [ "while true; do sleep 300000; done;" ]
+      securityContext:
+        runAsUser: 0
+        capabilities:
+          add: ["IPC_LOCK","SYS_RESOURCE"]
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: "4"
+          hugepages-1Gi: "4Gi"
+          intel.com/intel_fec_lte: '1'
+        limits:
+          memory: "1Gi"
+          cpu: "4"
+          hugepages-1Gi: "4Gi"
+          intel.com/intel_fec_lte: '1'
+      volumeMounts:
+        - mountPath: /mnt/huge
+          name: hugepage
+  volumes:
+    - name: hugepage
+      emptyDir:
+        medium: HugePages

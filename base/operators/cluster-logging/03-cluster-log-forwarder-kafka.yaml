@@ -1,0 +1,33 @@
+apiVersion: "logging.openshift.io/v1"
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+spec:
+  outputs:
+    - type: "kafka"
+      name: kafka-target
+      url: tcp://kafka.example.com:9092/ocp_logging_topic
+  inputs:
+  - name: infra-logs
+    infrastructure:
+      namespaces:
+      - openshift-apiserver
+      - openshift-cluster-version
+      - openshift-etcd
+      - openshift-kube-scheduler
+      - openshift-monitoring
+      - openshift-performance-addon
+      - openshift-ptp
+      - openshift-machine-config-operator
+  pipelines:
+    - name: audit-logs
+      inputRefs:
+        - audit
+      outputRefs:
+        - kafka-target
+    - name: infrastructure-logs
+      inputRefs:
+        - infrastructure
+      outputRefs:
+        - kafka-target

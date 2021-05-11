@@ -1,0 +1,19 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: max-pods-500 
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-kubelet: max-pods-500 
+  kubeletConfig:
+    # unlimited Pods per core
+    podsPerCore: 0
+    # max Pods per Node (max must be less than node CIDR)
+    # For /23, the max IP available are 2^(32-23)-2 = 510
+    maxPods: 500 
+
+
+# oc label machineconfigpool master custom-kubelet=max-pods-500
+# oc label machineconfigpool worker custom-kubelet=max-pods-500
+# oc label machineconfigpool <ran-du-mcp> custom-kubelet=max-pods-500

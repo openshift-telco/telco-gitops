@@ -1,0 +1,28 @@
+---
+# Validate CPU topology
+# $ for file in /sys/devices/system/cpu/cpu[0-9]*/topology/thread_siblings_list; do echo -n "$file "; cat $file; done |sort -k2 -n
+# Profile for VM wih 6 cores and 20G RAM
+apiVersion: performance.openshift.io/v1
+kind: PerformanceProfile
+metadata:
+  name: pao-sno-du
+spec:
+  # additionalKernelArgs:
+  #   - ""
+  cpu:
+    isolated: 2-5
+    reserved: 0-1
+  hugepages:
+    defaultHugepagesSize: "1G"
+    pages:
+    - size: "1G"
+      count: 2
+      node: 0
+  numa:
+    topologyPolicy: best-effort
+  realTimeKernel:
+    enabled: true
+  nodeSelector:
+    #node-role.kubernetes.io/ran-du: ""
+    # SNO requires matching master role
+    node-role.kubernetes.io/master: ""
