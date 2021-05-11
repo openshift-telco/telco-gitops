@@ -7,7 +7,7 @@ commonLabels:
 
 bases:
   # RAN BASE CONFIG
-  - ../ran
+  # - ../ran
   # PTP
   - ../operators/openshift-ptp
   # Intel vRAN Acceleration Operators
