@@ -1,0 +1,41 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  name: mcp-wait-job
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:v4.4
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export HOME=/tmp/mcp
+              echo ""
+              echo -n "Waiting for the MCP $MCP to converge."
+              sleep $SLEEP
+              until oc wait --for condition=updated --timeout=60s mcp $MCP
+              do
+                echo -n "...still waiting for $MCP to converge"
+                sleep $SLEEP
+              done
+              echo "DONE"
+          imagePullPolicy: Always
+          name: mcp-wait-job
+          env:
+          - name: SLEEP
+            value: "5"
+          - name: MCP 
+            value: worker
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccount: cli-job-sa
+      serviceAccountName: cli-job-sa
+      terminationGracePeriodSeconds: 30

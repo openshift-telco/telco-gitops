@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-test
+  namespace: sample-pod-app
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+data:
+  foo: "bar"
+  test: "example"
