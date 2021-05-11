@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
     targetRevision: HEAD
-    path: cluster-demo/gitops-apps
+    path: cluster-demo
     directory:
       recurse: false
   # Sync policy

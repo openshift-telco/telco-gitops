@@ -11,4 +11,4 @@ commonLabels:
 bases:
   # Import base cluster definitions
   - ../base/ran-cu
-  - ../base/ran-du
+  # - ../base/ran-du
