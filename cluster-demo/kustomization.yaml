@@ -15,7 +15,7 @@ generatorOptions:
     argcd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
 
-bases:
+# bases:
   # Import base cluster definitions
-  - ../base/ran-cu
+  # - ../base/ran-cu
   # - ../base/ran-du

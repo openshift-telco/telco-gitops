@@ -5,8 +5,9 @@ kind: Kustomization
 commonLabels:
   ran-cu: telco-gitops
 
-bases:
+# bases:
+#   - ""
   # RAN BASE CONFIG
-  - ../ran
+  # - ../ran
   # OpenShift Virtualization (if using VNFs)
   # - ../operators/openshift-virtualization

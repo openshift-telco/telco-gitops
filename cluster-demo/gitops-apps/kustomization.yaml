@@ -16,4 +16,6 @@ generatorOptions:
     argocd.argoproj.io/sync-options: Prune=false
 
 resources:
-  - 01-argocd-cluster-demo.yaml
+- 01-argocd-telco-common.yaml
+- 02-argocd-telco-ran.yaml
+- 03-argocd-telco-ran-cu.yaml
