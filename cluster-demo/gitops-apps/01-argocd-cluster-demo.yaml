@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     name: 'demo-ran'
-    server: 'https://api.demo.ran.shift.zone:6443'
+    #server: 'https://api.demo.ran.shift.zone:6443'
   # Source of the application manifests
   source:
     repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
@@ -20,9 +20,9 @@ spec:
   # Sync policy
   syncPolicy:
     automated: 
-      prune: true
+      prune: false
       selfHeal: true 
-      allowEmpty: false
+      allowEmpty: true
     syncOptions:
       # (equivalent to 'kubectl apply --validate=true')
       - Validate=false
