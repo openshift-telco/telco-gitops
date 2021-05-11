@@ -1,0 +1,39 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-demo
+  namespace: openshift-gitops
+spec:
+  # The argocd project the application belongs to
+  project: default
+  destination:
+    name: ''
+    server: 'https://api.demo.ran.shift.zone:6443'
+  # Source of the application manifests
+  source:
+    repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
+    targetRevision: HEAD
+    path: cluster-demo/gitops-apps
+    directory:
+      recurse: false
+  # Sync policy
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true 
+      allowEmpty: false
+    syncOptions:
+      # (equivalent to 'kubectl apply --validate=true')
+      - Validate=false
+      - CreateNamespace=true
+    retry:
+      # unlimited if less than 0
+      limit: -1
+      backoff:
+        # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        duration: 5s
+        # a factor to multiply the base duration after each failed retry
+        factor: 2
+        # the maximum amount of time allowed for the backoff strategy
+        maxDuration: 3m
