@@ -8,7 +8,7 @@ spec:
   # The argocd project the application belongs to
   project: default
   destination:
-    name: ''
+    name: 'demo-ran'
     server: 'https://api.demo.ran.shift.zone:6443'
   # Source of the application manifests
   source:
