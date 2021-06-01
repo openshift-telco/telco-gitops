@@ -1,0 +1,27 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: infraenv-demo-ran-shift-zone
+  namespace: assisted-installer
+spec:
+  additionalNTPSources:
+    - 2.rhel.pool.ntp.org
+  clusterRef:
+    name: cluster-demo-ran-shift-zone 
+    namespace: assisted-installer
+  ## (optional pub key)
+  sshAuthorizedKey: 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJhdxcSrr+m9htw61kpnzV1SK7DycRv/PhZbGpvVk04nsYeJUfmUGT/VG5jj6zFwNjLH0EXPAv68G34PaV8WSmk= telco.shift.zone'
+  agentLabelSelector:
+    matchLabels:
+      telco-gitops: demo-ran-shift-zone
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
+  # proxy:
+  #   httpProxy: http://11.11.11.33
+  #   httpsProxy: http://22.22.22.55
+  # Modify ignition during discovery
+  #ignitionConfigOverride: '{"ignition": {"version": "3.1.0"}, "storage": {"files": [{"path": "/etc/someconfig", "contents": {"source": "data:text/plain;base64,aGVscGltdHJhcHBlZGluYXN3YWdnZXJzcGVj"}}]}}'
+  ## Custom network configuration
+  # nmStateConfigLabelSelector:
+  #   matchLabels:
+  #     some-user-defined-label-name: some-user-defined-label-value

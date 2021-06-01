@@ -1,0 +1,23 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: cluster-demo-ran-shift-zone
+  namespace: assisted-installer
+spec:
+  baseDomain: ran.shift.zone
+  clusterName: demo
+  controlPlaneConfig:
+    servingCertificates: {}
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: aci-demo-ran-shift-zone
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          telco-gitops: demo-ran-shift-zone
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
