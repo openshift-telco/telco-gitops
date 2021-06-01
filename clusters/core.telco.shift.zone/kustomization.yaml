@@ -20,7 +20,10 @@ generatorOptions:
     argcd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
 
-# bases:
+bases:
   # Import base cluster definitions
-  # - ../base/ran-cu
-  # - ../base/ran-du
+  - ../base/core-5g
+
+resources:
+  - 00-core-telco-base.yaml
+  - 01-gitops-cnf-open5gs.yaml

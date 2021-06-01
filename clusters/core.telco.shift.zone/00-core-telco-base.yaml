@@ -1,0 +1,14 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-telco-shift-zone-00-base-config
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://api.core.telco.shift.zone:6443'
+  project: default
+  source:
+    path: clusters/core.telco.shift.zone
+    repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
+    targetRevision: HEAD
