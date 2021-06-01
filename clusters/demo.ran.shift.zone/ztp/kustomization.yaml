@@ -7,4 +7,6 @@ commonAnnotations:
   argocd.argoproj.io/sync-wave: "10"
 
 resources:
-  - ""
+  - 01-agent-demo-ran-shift-zone.yaml
+  - 01-cluster-demo-ran-shift-zone.yaml
+  - 01-infraenv-demo-ran-shift-zone.yaml
