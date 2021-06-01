@@ -6,8 +6,8 @@ metadata:
     # argocd.argoproj.io/sync-wave: "5"
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
-  # name: csv-wait-job
-  generateName: csv-wait-job-
+  name: presync-csv-wait-job
+  # generateName: presync-csv-wait-job-
   namespace: telco-gitops
 spec:
   template:
