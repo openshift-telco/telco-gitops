@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
     repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
   ignoreDifferences:
-    - group: core/v1 
+    - group: ""
       kind: Secret
       name: v4-0-config-user-idp-0-file-data
       namespace: openshift-authentication
