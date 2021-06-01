@@ -45,7 +45,6 @@ bases:
 
 resources:
   - 02-lso-localvolume-lvs.yaml
-  - 04-mgmt-telco-base.yaml
   - 05-gitops-mgmt-telco-configs.yaml
 
 # patchesStrategicMerge:

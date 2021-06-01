@@ -12,3 +12,10 @@ spec:
     path: clusters/mgmt.telco.shift.zone
     targetRevision: HEAD
     repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
+  ignoreDifferences:
+    - group: core/v1 
+      kind: Secret
+      name: v4-0-config-user-idp-0-file-data
+      namespace: openshift-authentication
+      jsonPointers:
+      - /
