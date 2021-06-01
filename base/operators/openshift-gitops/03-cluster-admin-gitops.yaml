@@ -12,3 +12,7 @@ subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller
     namespace: openshift-gitops
+  # NOTE: THIS MUST BE FIXED FOR MULTITENANT SETUP
+  - kind: ServiceAccount
+    name: openshift-gitops-argocd-server
+    namespace: openshift-gitops
