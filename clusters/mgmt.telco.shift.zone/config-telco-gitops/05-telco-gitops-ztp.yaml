@@ -2,23 +2,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
- name: telco-gitops-ztp
+  name: telco-gitops-ztp
+  namespace: openshift-gitops
 spec:
- generators:
- - git:
-    repoURL: https://github.com/openshift-telco/telco-gitops.git
-    revision: HEAD 
-    directories:
-    - path: "clusters/*"
- template:
-   metadata:
-     name: 'ztp-{{path.basename}}'
-   spec:
-     project: default
-     source:
-       repoURL: https://github.com/openshift-telco/telco-gitops.git
-       targetRevision: HEAD
-       path: '{{path}}'/ztp
-     destination:
-       server: https://kubernetes.default.svc
-       namespace: openshift-gitops
+  generators:
+  - git:
+      repoURL: https://github.com/openshift-telco/telco-gitops.git
+      revision: HEAD 
+      directories:
+      - path: "clusters/*"
+  template:
+    metadata:
+      name: 'ztp-{{path.basename}}'
+      namespace: openshift-gitops
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/openshift-telco/telco-gitops.git
+        targetRevision: HEAD
+        path: '{{path}}'/ztp
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: openshift-gitops
