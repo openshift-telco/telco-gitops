@@ -11,3 +11,4 @@ resources:
   - 02-hook-postsync-csv.yaml
   - 05-telco-gitops-ztp.yaml
   - 10-core-telco-base.yaml
+  - 10-core-telco-apps.yaml

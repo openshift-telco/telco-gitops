@@ -23,6 +23,3 @@ generatorOptions:
 bases:
   # Import base cluster definitions
   - ../../base/core-5g
-
-resources:
-  - 01-gitops-apps.yaml
