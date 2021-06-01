@@ -1,0 +1,14 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+ name: core-telco-shift-zone-apps
+ namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: clusters/core.telco.shift.zone/gitops-apps
+    repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
+    targetRevision: HEAD

@@ -25,4 +25,4 @@ bases:
   - ../../base/core-5g
 
 resources:
-  - 01-gitops-cnf-open5gs.yaml
+  - 01-gitops-apps.yaml
