@@ -4,16 +4,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 commonLabels:
-  ran-base: telco-gitops
+  core-5g-base: telco-gitops
 
 bases:
-  # # All Common Configs and Operators
-  # - ../all-common
+  # All Common Configs and Operators
+  - ../all-common
   # Enable SCTP
   - ../sctp
   # SRIOV
-  - ../operators/openshift-sriov-network-operator
+  # - ../operators/openshift-sriov-network-operator
   # PAO (4.7)
   - ../operators/openshift-performance-addon-operator
+  #- ../operators/openshift-performance-addon-operator-4.8
   # OpenShift Logging
   # - ../operators/openshift-logging

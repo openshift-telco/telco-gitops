@@ -13,7 +13,7 @@ bases:
   - ../sctp
   # SRIOV
   - ../operators/openshift-sriov-network-operator
-  # PAO (4.7)
-  - ../operators/openshift-performance-addon-operator
+  # PAO (4.8)
+  - ../operators/openshift-performance-addon-operator-4.8
   # OpenShift Logging
   # - ../operators/openshift-logging

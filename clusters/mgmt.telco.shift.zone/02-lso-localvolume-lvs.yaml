@@ -1,0 +1,45 @@
+---
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: local-disks
+  namespace: openshift-local-storage 
+spec:
+  managementState: Managed
+  nodeSelector: 
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: ran.openshift.io/lso
+          operator: Exists
+  storageClassDevices:
+    - storageClassName: "lso-filesystemclass" 
+      volumeMode: Filesystem 
+      fsType: xfs 
+      devicePaths: 
+        - /dev/autopart/lv_1 
+        - /dev/autopart/lv_2 
+        - /dev/autopart/lv_3
+    - storageClassName: "lso-blockclass" 
+      volumeMode: Block  
+      devicePaths: 
+        - /dev/autopart/lv_4 
+        - /dev/autopart/lv_5
+
+# The actual implementation should be left to the corresponding upstream project and its WG. We could focus in what (e.g. labels) the CNF will expect to find on an O-RAN compliant implementation. 
+
+# Would you be interested in working a proposal for a contribution around this topic for k8s based o-cloud?
+
+# # Joao Martins
+# o2.o-ran.org/loction=""
+# o2.o-ran.org/vnet="" # [fronthaul, midhaul, backhaul]
+# o2.o-ran.org/ #FH-LLS-C2, FH-LLS-C1, FH-LLS-
+
+
+# WG6 Calendar -- O2dms
+
+# https://oranalliance.atlassian.net/wiki/spaces/COWG/pages/1782415434/E-meeting%2BJune%2B2021%2B-%2BPlanning
+
+# ####
+# DMS 
+
+# E/// dms proposal 

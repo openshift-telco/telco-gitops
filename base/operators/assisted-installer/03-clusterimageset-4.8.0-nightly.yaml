@@ -1,0 +1,8 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: openshift-v4.8.0-nightly
+spec:
+  # Find latests at https://mirror.openshift.com/pub/openshift-v4/clients/ocp-dev-preview/latest-4.8/release.txt
+  # 4.8.0-0.nightly-2021-05-27-123356 
+  releaseImage: quay.io/openshift-release-dev/ocp-release-nightly:4.8.0-0.nightly-2021-05-27-123356

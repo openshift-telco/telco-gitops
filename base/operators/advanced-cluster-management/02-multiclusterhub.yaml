@@ -1,0 +1,14 @@
+---
+apiVersion: operator.open-cluster-management.io/v1
+kind: MultiClusterHub
+metadata:
+  name: multiclusterhub
+  namespace: open-cluster-management
+spec:
+  # https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.1/html/install/installing
+  # If using custom pull secrets
+  #imagePullSecret: <secret>
+  #
+  # enable self managed cluster
+  # This uses the "local-cluster" namespace
+  disableHubSelfManagement: false

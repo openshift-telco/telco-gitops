@@ -1,0 +1,16 @@
+---
+# This ZTP has dependency on a managemet cluster
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonAnnotations:
+  argocd.argoproj.io/sync-wave: "10"
+
+commonLabels:
+  telco-gitops/ztp: ran-du-sno
+
+resources:
+  - 01-agent-sno-telco-shift-zone.yaml
+  - 01-cluster-sno-telco-shift-zone.yaml
+  - 01-infraenv-sno-telco-shift-zone.yaml
+  # - 02-bmh-sno-telco-shift-zone.yaml

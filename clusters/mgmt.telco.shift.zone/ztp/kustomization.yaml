@@ -1,0 +1,15 @@
+---
+# This ZTP has dependency on a managemet cluster
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonAnnotations:
+  argocd.argoproj.io/sync-wave: "5"
+
+commonLabels:
+  telco-gitops/role: mgmt
+
+resources:
+  - 02-hook-presync-csv.yaml
+  - 06-bmc-pool5.yaml
+  - 06-bmc-telco-kvm02-sushy.yaml

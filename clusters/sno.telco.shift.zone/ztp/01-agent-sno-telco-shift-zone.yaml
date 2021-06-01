@@ -1,0 +1,25 @@
+---
+# This is equivalent to a base common profile
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: aci-sno-telco-shift-zone
+  namespace: assisted-installer
+  annotations:
+    agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
+spec:
+  clusterDeploymentRef:
+    name: aci-sno-telco-shift-zone
+  imageSetRef:
+    name: openshift-v4.8.0-fc.6
+  networking:
+    clusterNetwork:
+      - cidr: "10.128.0.0/14"
+        hostPrefix: 23
+    serviceNetwork:
+      - "172.30.0.0/16"
+    machineNetwork:
+      - cidr: "10.1.198.128/28"
+  provisionRequirements:
+    controlPlaneAgents: 1
+  sshPublicKey: 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJhdxcSrr+m9htw61kpnzV1SK7DycRv/PhZbGpvVk04nsYeJUfmUGT/VG5jj6zFwNjLH0EXPAv68G34PaV8WSmk= telco.shift.zone'

@@ -1,0 +1,47 @@
+---
+# https://github.com/openshift/assisted-service/blob/master/docs/operator.md#specifying-environmental-variables-via-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: assisted-service-config
+  namespace: assisted-installer
+data:
+  LOG_LEVEL: "debug"
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+  namespace: assisted-installer
+  annotations:
+    # ConfigMap for Env variables (dev only)
+    unsupported.agent-install.openshift.io/assisted-service-configmap: 'assisted-service-config'
+spec:
+  databaseStorage:
+    # storageClassName: lso-blockclass
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 30Gi
+  filesystemStorage:
+    # storageClassName: lso-filesystemclass
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 30Gi
+  osImages:
+    - openshiftVersion: "4.6"
+      version: "46.82.202012051820-0"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.7"
+      version: "47.83.202103251640-0"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-4.7.7-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.8"
+      # While pre-release, the latest public LiveISO and rootfs is from 4.7.7
+      version: "47.83.202103251640-0"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-4.7.7-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-live-rootfs.x86_64.img"

@@ -1,0 +1,13 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: HiveConfig
+metadata:
+  name: hive
+spec:
+  featureGates:
+    custom:
+      enabled:
+      - AlphaAgentInstallStrategy
+    featureSet: Custom
+  logLevel: debug
+  targetNamespace: hive

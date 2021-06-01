@@ -1,0 +1,29 @@
+---
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+  name: lso-auto-fs
+  namesapece: openshift-local-storage
+spec:
+  nodeSelector: 
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: ran.openshift.io/lso
+          operator: Exists
+  storageClassName: lso-auto-fs 
+  volumeMode: Filesystem
+  fstype: xfs
+  maxDeviceCount: 10
+  deviceInclusionSpec:
+    deviceTypes: 
+      - disk
+      - part
+    deviceMechanicalProperty:
+      # - NonRotational
+      - Rotational
+    minSize: 10G
+    # maxSize: 900G
+    # models:
+    #   - "PERC H730P Mini"
+    # vendors:
+    #   - DELL

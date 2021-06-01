@@ -10,7 +10,7 @@ bases:
   # PTP
   - ../operators/openshift-ptp
   # Removes OCP Web Console
-  - ../web-console
+  # - ../web-console
 
 resources:
   - 50-master-enable-sctp.yaml

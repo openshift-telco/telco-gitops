@@ -1,0 +1,13 @@
+---
+# BMC Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  # Redfish BMC with sushy-tools
+  name: bmc-telco-kvm02-sushy
+  namespace: assisted-installer
+data:
+  # update to match actual credentials
+  username: "YWRtaW4="
+  password: "cGFzc3dvcmQ="
+type: Opaque

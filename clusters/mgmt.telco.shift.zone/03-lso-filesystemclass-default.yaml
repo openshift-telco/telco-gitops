@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: lso-filesystemclass
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+# provisioner: kubernetes.io/no-provisioner
+
+### For manually setting storage class as default
+# oc patch storageclass lso-filesystemclass \
+# -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'

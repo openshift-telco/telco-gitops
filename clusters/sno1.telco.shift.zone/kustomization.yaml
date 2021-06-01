@@ -1,0 +1,32 @@
+---
+# This ZTP has dependency on a managemet cluster
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  # telco-gitops/mgmt: telco-gitops
+  # telco-gitops/core-5g: telco-gitops
+  # telco-gitops/ran-cu: telco-gitops
+  # telco-gitops/ran-du: telco-gitops
+  telco-gitops/ran-du-sno: telco-gitops
+  telco-gitops/cluster-name: sno1.telco.shift.zone
+  topology.kubernetes.io/region: sno1.telco.shift.zone
+  # Each SITE_ID is a different zone
+  #topology.kubernetes.io/zone: sample-zone
+
+generatorOptions:
+  # Annotations to work around automatically generated resoruces
+  # to avoid ArgoCD reporing out-of-sync
+  annotations:
+    argcd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+
+bases:
+  - ../../base/all-common
+  - ../../base/ran-4.8
+  - ../../base/ran-du-sno
+  # OpenShift Logging
+  # - ../../base/operators/openshift-logging
+
+resources:
+  - ""

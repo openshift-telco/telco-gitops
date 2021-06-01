@@ -1,0 +1,17 @@
+---
+# These manifests apply to every RAN cluster
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  # All Common Configs and Operators
+  - ../all-common
+  # Enable SCTP
+  # - ../sctp
+  # # PAO (4.7)
+  # - ../operators/openshift-performance-addon-operator
+  #- ../operators/openshift-performance-addon-operator/pao-4.8
+  # OpenShift Logging
+  # - ../operators/openshift-logging
+  # OpenShift Virtualization (if using VNFs)
+  # - ../operators/openshift-virtualization

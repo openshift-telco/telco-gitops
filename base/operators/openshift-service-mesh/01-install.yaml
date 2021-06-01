@@ -2,12 +2,13 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: openshift-gitops-operator
+  name: servicemeshoperator
   namespace: openshift-operators
+  labels:
+    operators.coreos.com/servicemeshoperator.openshift-operators: ''
 spec:
-  channel: "stable"
+  channel: stable
   installPlanApproval: Automatic
-  name: openshift-gitops-operator
-  # Modify source name of the catalogsource for isolated network deployments
+  name: servicemeshoperator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

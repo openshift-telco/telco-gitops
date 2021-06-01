@@ -1,0 +1,23 @@
+---
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: local-disks
+  namespace: openshift-local-storage 
+spec:
+  managementState: Managed
+  nodeSelector: 
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: ran.openshift.io/lso
+          operator: Exists
+  storageClassDevices:
+    - storageClassName: "lso-filesystemclass" 
+      volumeMode: Filesystem 
+      fsType: xfs 
+      devicePaths: 
+        - /dev/sdb 
+    - storageClassName: "lso-blockclass" 
+      volumeMode: Block  
+      devicePaths: 
+        - /dev/sdc

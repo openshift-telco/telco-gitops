@@ -1,0 +1,38 @@
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: sno1-telco-shift-zone
+  namespace: assisted-installer
+  labels:
+    # InfraEnv to use
+    infraenvs.agent-install.openshift.io: "infraenv-sno1-telco-shift-zone"
+  annotations:
+    inspect.metal3.io: disabled
+    # https://github.com/openshift/assisted-service/blob/master/docs/Kube-API.md
+    #bmac.agent-install.openshift.io/installer-args: '["--append-karg", "ip=192.0.2.2::192.0.2.254:255.255.255.0:core0.example.com:enp1s0:none", "--save-partindex", "1", "-n"]'
+    #bmac.agent-install.openshift.io/ignition-config-overrides: '{"ignition": {"version": "3.1.0"}, "storage": {"files": [{"path": "/tmp/example", "contents": {"source": "data:text/plain;base64,aGVscGltdHJhcHBlZGluYXN3YWdnZXJzcGVj"}}]}}'
+spec:
+  online: true
+  bootMACAddress: 52:54:00:aa:14:01
+  automatedCleaningMode: disabled
+  bootMode: UEFI
+  rootDeviceHints:
+    # hctl: "2:0:0:0"
+    deviceName: /dev/vda
+  bmc:
+    # https://github.com/metal3-io/baremetal-operator/blob/master/docs/api.md
+    #address: redfish-virtualmedia+http://10.1.198.130:8080/redfish/v1/Systems/sno1.telco.shift.zone
+    #address: redfish-virtualmedia+http://10.1.198.130:8080/redfish/v1/Systems/e12eb52a-fab3-4231-8ad9-c4b5202a6370
+    address: redfish-virtualmedia://10.1.198.130:8080/redfish/v1/Systems/e12eb52a-fab3-4231-8ad9-c4b5202a6370
+    # secret must exist
+    credentialsName: bmc-telco-kvm02-sushy
+    disableCertificateVerification: True
+
+# oc delete -f 02-bmh-sno1-telco-shift-zone.yaml ; sleep 3 ; oc create -f 02-bmh-sno1-telco-shift-zone.yaml
+# watch -c "oc get bmh sno1-telco-shift-zone -o jsonpath='{.status}' | jq . "
+
+# Currently Redfish is only supported on Dell with iDRAC firmware versions 4.20.20.20 through 04.40.00.00 for IPI 
+# on bare metal deployments. There is a known issue with version 04.40.00.00. With iDRAC 9 firmware version 04.40.00.00,
+# the Virtual Console plug-in defaults to eHTML5, which causes problems with the InsertVirtualMedia workflow.
+# Set the plug-in to HTML5 to avoid this issue. The menu path is: Configuration → Virtual console → Plug-in Type → HTML5

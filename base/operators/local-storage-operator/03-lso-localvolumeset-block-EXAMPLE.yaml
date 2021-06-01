@@ -1,0 +1,30 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+  name: local-block
+  namespace: openshift-local-storage
+spec:
+  nodeSelector: 
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: ran.openshift.io/lso
+          operator: Exists
+  storageClassName: lso-autodetect-block
+  volumeMode: Block
+  fstype: ""
+  # Number of devices to be used per node
+  maxDeviceCount: 10
+  deviceInclusionSpec:
+    deviceTypes:
+    - disk
+    - part
+    deviceMechanicalProperties:
+    - NonRotational
+    # (optional) list of models to allow
+    models:
+      - "PERC H730P Mini"
+      - "Dell Express Flash NVMe P4610 3.2TB SFF"
+    # (optional) list of device vendors to allow
+    vendors:
+      - DELL
+      - ATA

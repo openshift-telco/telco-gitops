@@ -1,0 +1,45 @@
+---
+# BMC Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pool5-bmc
+  namespace: assisted-installer
+data:
+  # update to match actual credentials
+  username: cm9vdA==
+  password: cG9vbDVkcmFj
+type: Opaque
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: pool5-sno-telco-shift-zone
+  namespace: assisted-installer
+  labels:
+    # InfraEnv to use
+    infraenvs.agent-install.openshift.io: "infraenv-sno-telco-shift-zone"
+  annotations:
+    inspect.metal3.io: disabled
+    # https://github.com/openshift/assisted-service/blob/master/docs/Kube-API.md
+    #bmac.agent-install.openshift.io/installer-args: '["--append-karg", "ip=192.0.2.2::192.0.2.254:255.255.255.0:core0.example.com:enp1s0:none", "--save-partindex", "1", "-n"]'
+    #bmac.agent-install.openshift.io/ignition-config-overrides: '{"ignition": {"version": "3.1.0"}, "storage": {"files": [{"path": "/tmp/example", "contents": {"source": "data:text/plain;base64,aGVscGltdHJhcHBlZGluYXN3YWdnZXJzcGVj"}}]}}'
+spec:
+  online: true
+  bootMACAddress: 3c:fd:fe:78:ab:81
+  automatedCleaningMode: disabled
+  bmc:
+    # https://github.com/metal3-io/baremetal-operator/blob/master/docs/api.md
+    # example with Dell R640
+    #address: idrac-redfish://10.1.177.53/redfish/v1/Systems/System.Embedded.1
+    address: idrac-virtualmedia://10.1.177.53/redfish/v1/Systems/System.Embedded.1
+    credentialsName: pool5-bmc
+    disableCertificateVerification: True
+
+# oc delete -f 02-bmh-sno-telco-shift-zone.yaml ; sleep 3 ; oc create -f 02-bmh-sno-telco-shift-zone.yaml
+# watch -c "oc get bmh pool5-sno-telco-shift-zone -o jsonpath='{.status}' | jq . "
+
+# Currently Redfish is only supported on Dell with iDRAC firmware versions 4.20.20.20 through 04.40.00.00 for IPI 
+# on bare metal deployments. There is a known issue with version 04.40.00.00. With iDRAC 9 firmware version 04.40.00.00,
+# the Virtual Console plug-in defaults to eHTML5, which causes problems with the InsertVirtualMedia workflow.
+# Set the plug-in to HTML5 to avoid this issue. The menu path is: Configuration → Virtual console → Plug-in Type → HTML5

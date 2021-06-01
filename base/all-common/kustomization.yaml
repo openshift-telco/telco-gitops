@@ -12,6 +12,3 @@ bases:
   - ../idp-htpasswd
   # local storage operator
   - ../operators/local-storage-operator
-  # SRIOV
-  - ../operators/openshift-sriov-network-operator
-  

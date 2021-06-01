@@ -6,3 +6,4 @@ metadata:
     custom-kubelet: max-pods-500
     machineconfiguration.openshift.io/role: master
   name: master
+# oc label machineconfigpool master custom-kubelet=max-pods-500 machineconfiguration.openshift.io/role=master

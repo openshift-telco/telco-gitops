@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+ name: mgmt-telco-shift-zone
+spec:
+ generators:
+ - git:
+    repoURL: https://github.com/openshift-telco/telco-gitops.git
+    revision: HEAD 
+    directories:
+    - path: "clusters/mgmt.telco.shift.zone/config-*"
+ template:
+   metadata:
+     name: 'mgmt-telco-{{path.basename}}'
+   spec:
+     project: openshift-gitops
+     source:
+       repoURL: https://github.com/openshift-telco/telco-gitops.git
+       targetRevision: HEAD
+       path: '{{path}}'
+     destination:
+       server: https://kubernetes.default.svc
+       namespace: openshift-gitops

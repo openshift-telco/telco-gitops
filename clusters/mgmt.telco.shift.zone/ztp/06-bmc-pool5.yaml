@@ -1,0 +1,12 @@
+---
+# BMC Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pool5-bmc
+  namespace: assisted-installer
+data:
+  # update to match actual credentials
+  username: "cm9vdA=="
+  password: "cG9vbDVkcmFj"
+type: Opaque

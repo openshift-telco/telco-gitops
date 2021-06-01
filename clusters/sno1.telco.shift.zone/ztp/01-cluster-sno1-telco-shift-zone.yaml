@@ -1,0 +1,23 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: cluster-sno1-telco-shift-zone
+  namespace: assisted-installer
+spec:
+  baseDomain: telco.shift.zone
+  clusterName: sno1
+  controlPlaneConfig:
+    servingCertificates: {}
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: aci-sno1-telco-shift-zone
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          telco-sno: sno1-telco-shift-zone
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
