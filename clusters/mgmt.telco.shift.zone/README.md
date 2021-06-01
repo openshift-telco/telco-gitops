@@ -52,3 +52,33 @@ error: unable to recognize ".": no matches for kind "SriovOperatorConfig" in ver
     ```bash
     oc get secret openshift-gitops-cluster -o go-template='{{index .data "admin.password"}}' | base64 -d
     ```
+
+## Definition of cluster for ArgoCD
+
+After a cluster is deployed, before using ArgoCD for day-2 GitOps configurations, the cluster credentials must be defined in ArgoCD.
+
+- Login into the ArgoCD instance in the management cluster using ArgoCD CLI. You will be prompted for the ArgoCD `admin` password.
+```bash
+argocd login https://api.mgmt.telco.shift.zone:6443 --name admin
+```
+- List clusters 
+```bash
+$ argocd cluster list
+SERVER                                  NAME        VERSION  STATUS      MESSAGE
+https://kubernetes.default.svc          in-cluster  1.21+    Successful
+```
+- Add target cluster
+```bash
+$ argocd cluster add --kubeconfig ~/kubeconfig-telco-core admin --name telco-core
+INFO[0000] ServiceAccount "argocd-manager" created in namespace "kube-system"
+INFO[0000] ClusterRole "argocd-manager-role" created
+INFO[0000] ClusterRoleBinding "argocd-manager-role-binding" created
+Cluster 'https://api.core.telco.shift.zone:6443' added
+```
+- Validate cluster has been defined
+```bash
+argocd cluster list
+SERVER                                  NAME        VERSION  STATUS      MESSAGE
+https://api.core.telco.shift.zone:6443  telco-core  1.20     Successful
+https://kubernetes.default.svc          in-cluster  1.21+    Successful
+```

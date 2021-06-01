@@ -22,7 +22,7 @@ generatorOptions:
 
 bases:
   # Import base cluster definitions
-  - ../base/core-5g
+  - ../../base/core-5g
 
 resources:
   - 01-gitops-cnf-open5gs.yaml
