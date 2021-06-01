@@ -34,3 +34,4 @@ volumes:
 # - system:cnfvendor
 users:
 - system:serviceaccount:open5gcore:default
+- system:serviceaccount:open5gran:default

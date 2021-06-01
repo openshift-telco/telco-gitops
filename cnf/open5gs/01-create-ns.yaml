@@ -5,3 +5,10 @@ metadata:
   name: open5gcore
   labels:
     openshift.io/cluster-monitoring: "true"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: open5gran
+  labels:
+    openshift.io/cluster-monitoring: "true"

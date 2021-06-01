@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
 - 01-create-ns.yaml
 - 02-scc-open5gs.yaml
+- 03-mongodb-ca.yaml
