@@ -14,7 +14,7 @@ spec:
    metadata:
      name: 'ztp-{{path.basename}}'
    spec:
-     project: openshift-gitops
+     project: default
      source:
        repoURL: https://github.com/openshift-telco/telco-gitops.git
        targetRevision: HEAD

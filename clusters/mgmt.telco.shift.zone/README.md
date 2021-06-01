@@ -48,3 +48,7 @@ error: unable to recognize ".": no matches for kind "SriovOperatorConfig" in ver
     ```bash
     oc patch provisioning provisioning-configuration --type merge -p '{"spec":{"watchAllNamespaces": true}}'
     ```
+- To obtain the password for `openshift-gitops` ArgoCD `admin`
+    ```bash
+    oc get secret openshift-gitops-cluster -o go-template='{{index .data "admin.password"}}' | base64 -d
+    ```
