@@ -15,8 +15,9 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 | Directory | Description                                                               |
 |-----------|---------------------------------------------------------------------------|
 | base      | contains or base or common configuration for various Telco configurations |
+| blueprints| various telco cluster configurations blueprints                           |
 | clusters  | various example cluster configurations for labs                           |
 | cnf       | various CNF examples                                                      |
 
 
-> :heavy_exclamation_mark: *This work is under heavy development*
+> :heavy_exclamation_mark: *This work is under heavy development -- no guarantees of backwards compatibility on changes on `main` branch*

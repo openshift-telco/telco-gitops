@@ -1,9 +1,11 @@
+---
+# SNO requires to match master role
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   labels:
-    machineconfiguration.openshift.io/role: master
-  name: 50-master-enable-sctp
+    machineconfiguration.openshift.io/role: worker
+  name: 50-worker-enable-sctp
 spec:
   config:
     ignition:

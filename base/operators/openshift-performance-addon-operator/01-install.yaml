@@ -12,4 +12,3 @@ spec:
   name: performance-addon-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: performance-addon-operator.v4.7.3

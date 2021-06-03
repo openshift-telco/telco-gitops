@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# NOTE: Enable SCTP on nodes
+resources:
+  - 50-master-enable-sctp.yaml
+  - 50-worker-enable-sctp.yaml
+  # - 50-ran-enable-sctp.yaml

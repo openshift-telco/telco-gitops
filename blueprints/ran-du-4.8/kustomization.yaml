@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/ran-du-4.8: telco-gitops
+
+bases:
+  # Enable SCTP
+  - ../../base/configs/sctp
+  # SRIOV
+  - ../../base/operators/openshift-sriov-network-operator
+  # PAO (4.8)
+  - ../../base/operators/openshift-performance-addon-operator-4.8
+  # PTP
+  - ../../base/operators/openshift-ptp
+  # Intel vRAN Acceleration Operators
+  # - ../../base/operators/vran-acceleration-operators
+  # Removes OCP Web Console
+  # - ../../configs/web-console
+
+resources:
+  - 01-max-pods-500.yaml
+  - 02-ran-du-mcp.yaml
+  - 50-ran-du-disable-chronyd.yaml

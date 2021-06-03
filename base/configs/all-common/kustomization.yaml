@@ -11,4 +11,4 @@ bases:
   # Identity Provider (htpasswd)
   - ../idp-htpasswd
   # local storage operator
-  - ../operators/local-storage-operator
+  - ../../operators/local-storage-operator

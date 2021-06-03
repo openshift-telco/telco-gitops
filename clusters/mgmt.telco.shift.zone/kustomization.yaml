@@ -3,28 +3,22 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 commonLabels:
-  telco-gitops/mgmt: telco-gitops
-  # telco-gitops/core-5g: telco-gitops
-  # telco-gitops/ran-cu: telco-gitops
-  # telco-gitops/ran-du: telco-gitops
-  # telco-gitops/ran-du-sno: telco-gitops
   telco-gitops/cluster-name: mgmt.telco.shift.zone
   topology.kubernetes.io/region: mgmt.telco.shift.zone
   # Each SITE_ID is a different zone
   #topology.kubernetes.io/zone: sample-zone
 
-generatorOptions:
+commonAnnotations:
   # Annotations to work around automatically generated resoruces
   # to avoid ArgoCD reporing out-of-sync
-  annotations:
-    argcd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-options: Prune=false
+  argcd.argoproj.io/compare-options: IgnoreExtraneous
+  argocd.argoproj.io/sync-options: Prune=false
 
 bases:
   # Common Operators
-  - ../../base/all-common
+  - ../../base/configs/all-common
   # Optimal BM profiles
-  - ../../base/rwn
+  - ../../blueprints/rwn
   # Operators for MGMT Clusters
   # OpenShift GitOps
   - ../../base/operators/openshift-gitops
@@ -41,7 +35,7 @@ bases:
   # # Quay Enterprise
   # - ../../base/operators/quay-enterprise-operator
   # OpenShift Logging
-  # - ../../base/operators/openshift-logging
+  - ../../base/operators/openshift-logging
 
 resources:
   - 02-lso-localvolume-lvs.yaml

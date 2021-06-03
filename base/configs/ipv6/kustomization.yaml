@@ -2,5 +2,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# Note: This is a fix for IPv6 on OCP 4.6.x
 resources:
-  - 50-ran-enable-sctp.yaml
+- 50-worker-nm-fix-ipv6-duid.yaml

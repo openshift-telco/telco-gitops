@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/oss-bss: telco-gitops
+
+bases:
+  # OpenShift ServiceMesh
+  - ../../base/operators/openshift-service-mesh
+  # PAO (4.7)
+  # - ../../base/operators/openshift-performance-addon-operator
+  # - ../../base/operators/openshift-performance-addon-operator-4.8
