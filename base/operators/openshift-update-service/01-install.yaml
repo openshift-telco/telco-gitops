@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-update-service
+  labels:
+    openshift.io/run-level: "1"
+    openshift.io/cluster-monitoring: "true"
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: cincinnati-operator
+  namespace: openshift-update-service
+spec:
+  targetNamespaces:
+  - openshift-update-service
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: cincinnati-operator
+  namespace: openshift-update-service
+spec:
+  channel: v1
+  installPlanApproval: Automatic
+  name: cincinnati-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+
+## Query OpenShift's Update Service Endpoint
+# curl --silent --header 'Accept:application/json' \
+# 'https://api.openshift.com/api/upgrades_info/v1/graph?arch=amd64&channel=stable-4.7' | \
+# jq '. as $graph | $graph.nodes | map(.version == "4.7.8") | index(true) as $orig | $graph.edges | map(select(.[0] == $orig)[1]) | map($graph.nodes[.])'
