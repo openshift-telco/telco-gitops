@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-pod
+  namespace: default
+spec:
+  # nodeSelector:
+  #   kubernetes.io/hostname: worker-01
+  containers:
+  - name: simple-pod
+    image: registry.access.redhat.com/ubi8/ubi
+    resources:
+      requests:
+        memory: "64M"
+        cpu: "20m"
+      limits:
+        memory: "128M"
+        cpu: "50m"
+    command:
+    - /bin/bash
+    - -c
+    - sleep infinity
+  #   volumeMounts:
+  #   - mountPath: /foo
+  #     name: foo-vol
+  # volumes:
+  #   - name: foo-vol
+  #     configMap:
+  #       name: cm-test
+

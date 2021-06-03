@@ -22,3 +22,6 @@ bases:
   - ../../blueprints/rwn
   # Deploy Servie Mesh
   - ../../base/operators/openshift-service-mesh
+
+resources:
+  - 04-sample-pod.yaml
