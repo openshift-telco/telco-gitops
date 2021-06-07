@@ -22,9 +22,8 @@ metadata:
   name: sriov-network-operator-subscription
   namespace: openshift-sriov-network-operator
 spec:
-  channel: "4.7"
+  channel: "CHANGEME"
   installPlanApproval: Automatic
   name: sriov-network-operator
-  # Modify source name of the catalogsource for air-gapped deployments
   source: redhat-operators
   sourceNamespace: openshift-marketplace

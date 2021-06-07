@@ -32,6 +32,10 @@ spec:
     # https://github.com/metal3-io/baremetal-operator/blob/master/docs/api.md
     # example with Dell R640
     #address: idrac-redfish://10.1.177.53/redfish/v1/Systems/System.Embedded.1
+    # address: idrac-virtualmedia://10.1.177.53/redfish/v1/Managers/iDRAC.Embedded.1/VirtualMedia/CD/Actions/VirtualMedia.InsertMedia
+    # address: idrac-virtualmedia://10.1.177.53/redfish/v1/Systems/System.Embedded.1
+    # https://10.1.177.53/redfish/v1/Managers/iDRAC.Embedded.1/VirtualMedia/CD/Actions/VirtualMedia.InsertMedia
+    #address: idrac-redfish://10.1.177.53/redfish/v1/Systems/System.Embedded.1
     address: idrac-virtualmedia://10.1.177.53/redfish/v1/Systems/System.Embedded.1
     credentialsName: pool5-bmc
     disableCertificateVerification: True

@@ -1,0 +1,20 @@
+---
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata: 
+  labels:
+    custom-kubelet: max-pods-500
+    machineconfiguration.openshift.io/role: ran-cu
+  name: ran-cu
+spec:
+  machineConfigSelector:
+    matchExpressions:
+      - {
+          key: machineconfiguration.openshift.io/role,
+          operator: In,
+          values: [worker, ran, ran-cu]
+        }
+  paused: false
+  nodeSelector:
+    matchLabels:
+      node-role.kubernetes.io/ran-cu: ""

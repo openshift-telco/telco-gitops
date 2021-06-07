@@ -22,9 +22,8 @@ metadata:
   name: ptp-operator-subscription
   namespace: openshift-ptp
 spec:
-  channel: "4.7"
+  channel: "CHANGEME"
   installPlanApproval: Automatic
   name: ptp-operator
-  # Modify source name of the catalogsource for air-gapped deployments
   source: redhat-operators
   sourceNamespace: openshift-marketplace

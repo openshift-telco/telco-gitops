@@ -4,10 +4,10 @@ kind: Subscription
 metadata:
   name: performance-addon-operator
   namespace: openshift-operators
-  # labels:
-  #   operators.coreos.com/performance-addon-operator.openshift-operators: ''
+  labels:
+    operators.coreos.com/performance-addon-operator.openshift-operators: ''
 spec:
-  channel: '4.7'
+  channel: 'CHANGEME'
   installPlanApproval: Automatic
   name: performance-addon-operator
   source: redhat-operators

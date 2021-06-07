@@ -1,0 +1,26 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/cluster-name: ran.example.com
+  topology.kubernetes.io/region: ran.example.com
+  # Each SITE_ID is a different zone
+  #topology.kubernetes.io/zone: sample-zone
+
+commonAnnotations:
+  # Annotations to work around automatically generated resoruces
+  # to avoid ArgoCD reporing out-of-sync
+  argcd.argoproj.io/compare-options: IgnoreExtraneous
+  argocd.argoproj.io/sync-options: Prune=false
+
+bases:
+  # Common Operators
+  - ../../base/configs/all-common
+  # Import blueprint cluster definitions
+  - ../../blueprints/combined-ran-4.6
+  # OpenShift Logging
+  # - ../../base/operators/openshift-logging
+
+patches:
+  - 01-patch-lso-operator.yaml

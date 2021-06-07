@@ -2,9 +2,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: simple-pod
+  # annotations: 
+  #   cpu-load-balancing.crio.io: "disable"
+  #   irq-load-balancing.crio.io: "disable" 
+  name: qos-pod
   namespace: default
 spec:
+  # runtimeClassName: performance-myprofile
   # nodeSelector:
   #   kubernetes.io/hostname: worker-01
   containers:
@@ -12,11 +16,11 @@ spec:
     image: registry.access.redhat.com/ubi8/ubi
     resources:
       requests:
-        memory: "64M"
-        cpu: "20m"
+        memory: "16M"
+        cpu: "1"
       limits:
-        memory: "128M"
-        cpu: "50m"
+        memory: "16M"
+        cpu: "1"
     command:
     - /bin/bash
     - -c
@@ -28,4 +32,3 @@ spec:
   #   - name: foo-vol
   #     configMap:
   #       name: cm-test
-
