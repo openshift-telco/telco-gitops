@@ -12,12 +12,23 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 #############################################################################
 ```
 
-| Directory | Description                                                               |
-|-----------|---------------------------------------------------------------------------|
-| base      | contains or base or common configuration for various Telco configurations |
-| blueprints| various telco cluster configurations blueprints                           |
-| clusters  | various example cluster configurations for labs                           |
-| cnf       | various CNF examples                                                      |
+The design philosophy of this repository follows these [GitOps Principles](GitOps-Principles.md) to deploy, manage and operate OpenShift clusters for Telco use cases.
 
+| Directory  | Description                                                               |
+|------------|---------------------------------------------------------------------------|
+| /base      | contains `base` and `common` manifests for various Telco configurations   |
+| /blueprints| various Telco cluster type configurations blueprints                      |
+| /clusters  | various example cluster configurations for labs                           |
+| /cnf       | various CNF examples                                                      |
+
+
+## Development structure
 
 > :heavy_exclamation_mark: *This work is under heavy development -- no guarantees of backwards compatibility on changes on `main` branch*
+
+| Branch     | Description                                                          | Status               |
+|------------|----------------------------------------------------------------------|----------------------|
+| main       | Development branch using stable OCP releases and upcoming releases.  | Active development   |
+| ocp-4.8    | GitOps structure used for OpenShift 4.8.x stable releases            | (in progress)        |
+| ocp-4.7    | GitOps structure used for OpenShift 4.7.x stable releases            | (in progress)        |
+| ocp-4.6    | GitOps structure used for OpenShift 4.6.16 to 4.6.18 releases.       | No longer maintained |

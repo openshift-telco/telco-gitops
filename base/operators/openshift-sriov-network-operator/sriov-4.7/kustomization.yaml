@@ -5,5 +5,8 @@ kind: Kustomization
 bases:
   - ../common
 
+resources:
+  - 03-unsupported-nic-ids.yaml
+
 patches:
   - patch.yaml

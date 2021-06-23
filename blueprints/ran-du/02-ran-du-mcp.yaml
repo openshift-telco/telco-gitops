@@ -18,3 +18,5 @@ spec:
   nodeSelector:
     matchLabels:
       node-role.kubernetes.io/ran-du: ""
+
+# oc patch mcp ran-du -p '{"spec": {"paused": true}}'
