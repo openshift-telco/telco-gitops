@@ -1,0 +1,46 @@
+---
+###############################################################################
+# O-RAN Midhaul - VF type netdevice
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-mh-netdevice
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_mh_netdevice
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-mh-netdevice: ""
+  deviceType: netdevice
+  priority: 10
+  #mtu: 1500
+  numVfs: 6
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens1f0#0-3
+---
+###############################################################################
+# O-RAN Midhaul - VF type vfio
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-mh-vfio
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_mh_vfio
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-mh-vfio: ""
+  deviceType: vfio-pci
+  priority: 10
+  #mtu: 1500
+  numVfs: 6
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens1f0#4-5

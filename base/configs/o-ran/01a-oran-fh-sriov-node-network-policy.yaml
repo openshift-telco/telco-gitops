@@ -1,0 +1,48 @@
+---
+###############################################################################
+# O-RAN Open Fronthaul - VF type vfio (e.g. cu-plane)
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-fh-vfio
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_fh_vfio
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-fh-vfio: ""
+  deviceType: vfio-pci
+  priority: 10
+  #mtu: 1500
+  # Must account for the total of netdevices + vfio devices in the same PFs
+  numVfs: 4
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens1f1#0-1
+---
+###############################################################################
+# O-RAN Open Fronthaul - VF type netdevice (e.g. m-plane)
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-fh-netdevice
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_fh_netdevice
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-fh-netdevice: ""
+  deviceType: netdevice
+  priority: 10
+  #mtu: 1500
+  # Must account for the total of netdevices + vfio devices in the same PFs
+  numVfs: 4
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens1f1#2-3

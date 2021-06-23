@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- 01a-oran-fh-sriov-node-network-policy.yaml
+- 01b-oran-fh-sriov-cu-plane.yaml
+- 01b-oran-fh-sriov-m-plane.yaml
+- 02a-oran-mh-sriov-node-network-policy.yaml
+- 02b-oran-mh-netdevice-cu.yaml
+- 02b-oran-mh-netdevice-du.yaml
+- 02c-vran-mgmt-netdevice-cu.yaml
+- 02c-vran-mgmt-netdevice-du.yaml

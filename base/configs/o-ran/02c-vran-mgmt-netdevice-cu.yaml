@@ -1,0 +1,24 @@
+---
+###############################################################################
+# SR-IOV Network Definition for the NS of the workload
+# vran-mgmt-cu + vlan 805 + oran_mh_netdevice
+###############################################################################
+# NS = cnf-cu
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: vran-mgmt-cu
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_mh_netdevice
+  networkNamespace: cnf-cu
+  vlan: 805
+  ipam: |-
+    {"type": "static"}
+  linkState: auto
+  # spoofChk: "<spoof_check>"
+  # maxTxRate: <max_tx_rate>
+  # minTxRate: <min_rx_rate>
+  vlanQoS: 2
+  # trust: "<trust_vf>"
+  # capabilities: <capabilities>
