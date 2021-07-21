@@ -1,0 +1,22 @@
+---
+###############################################################################
+# Backhaul - VF type vfio
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-bh-vfio
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_bh_vfio
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-bh-vfio: ""
+  deviceType: vfio-pci
+  priority: 10
+  #mtu: 1500
+  numVfs: 24
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens2f0#0-23

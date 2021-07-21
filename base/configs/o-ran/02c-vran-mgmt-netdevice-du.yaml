@@ -1,7 +1,7 @@
 ---
 ###############################################################################
 # SR-IOV Network Definition for the NS of the workload
-# vran-mgmt-du + vlan 805 + oran_mh_netdevice
+# vran-mgmt-du + vlan 2015 + oran_mh_netdevice
 ###############################################################################
 # NS = cnf-du
 apiVersion: sriovnetwork.openshift.io/v1
@@ -11,8 +11,9 @@ metadata:
   namespace: openshift-sriov-network-operator
 spec:
   resourceName: oran_mh_netdevice
+  # Namespace with the DU workload
   networkNamespace: cnf-du
-  vlan: 805
+  vlan: 2015
   ipam: |-
     {"type": "static"}
   linkState: auto

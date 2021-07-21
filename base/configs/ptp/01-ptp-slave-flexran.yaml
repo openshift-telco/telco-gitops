@@ -1,0 +1,39 @@
+---
+# oc label node w2 ran.openshift.io/ptp="" ran.openshift.io/ptp-slave-flexran-du=""
+# Configuration C3
+kind: PtpConfig
+metadata:
+  name: slave-flexran-du
+  namespace: openshift-ptp
+spec:
+  profile:
+    - name: "slave-flexran"
+      interface: "ens2f0"
+      ptp4lOpts: ""
+      phc2sysOpts: "-a -r -n 24"
+      ptp4lConf: |
+         [global]
+         #
+         # Default Data Set
+         #
+         slaveOnly               1
+         priority1 128
+         domainNumber 24
+         boundary_clock_jbod 1
+         logAnnounceInterval -3
+         delay_mechanism E2E
+         network_transport L2
+         tx_timestamp_timeout 20
+         dataset_comparison G.8275.x
+         time_stamping hardware
+         clockClass 255
+         logSyncInterval -4
+         logMinDelayReqInterval -4
+         summary_interval 1
+         priority2 128
+         clock_servo linreg
+  recommend:
+    - profile: "slave-flexran"
+      priority: 1
+      match:
+        - nodeLabel: "ran.openshift.io/ptp-slave-flexran-du"

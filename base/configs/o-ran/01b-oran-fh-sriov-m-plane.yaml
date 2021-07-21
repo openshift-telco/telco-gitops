@@ -11,6 +11,7 @@ metadata:
   namespace: openshift-sriov-network-operator
 spec:
   resourceName: oran_fh_netdevice
+  # Namespace with the DU workload
   networkNamespace: cnf-du
   vlan: 2003
   ipam: |-
