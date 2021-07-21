@@ -32,3 +32,5 @@ The design philosophy of this repository follows these [GitOps Principles](GitOp
 | ocp-4.8    | GitOps structure used for OpenShift 4.8.x stable releases            | Balanced and steady progress      |
 | ocp-4.7    | GitOps structure used for OpenShift 4.7.x stable releases            | No changes. Bug Fixes only        |
 | ocp-4.6    | GitOps structure used for OpenShift 4.6.16 to 4.6.18 releases.       | No longer maintained (unreleased) |
+
+NOTE: This is `release/ocp-4.7`
