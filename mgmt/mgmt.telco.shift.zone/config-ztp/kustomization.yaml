@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonAnnotations:
+  argocd.argoproj.io/sync-wave: "30"
+
+resources:
+  - 00-hook-postsync-csv.yaml
+  # - 05-telco-gitops-ztp.yaml

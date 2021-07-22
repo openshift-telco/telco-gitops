@@ -8,7 +8,7 @@ spec:
   generators:
     - git:
         directories:
-          - path: clusters/mgmt.telco.shift.zone/config-*
+          - path: mgmt/mgmt.telco.shift.zone/config-*
         repoURL: 'https://github.com/openshift-telco/telco-gitops.git'
         revision: HEAD
   template:

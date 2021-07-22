@@ -18,9 +18,9 @@ The design philosophy of this repository follows these [GitOps Principles](GitOp
 |------------|---------------------------------------------------------------------------|
 | /base      | contains common operators and configs manifests for Telco blueprints      |
 | /blueprints| various Telco cluster type configurations blueprints                      |
-| /clusters  | various example cluster configurations for labs                           |
-| /cnf       | various CNF examples                                                      |
-
+| /clusters  | examples of managed cluster configurations                                |
+| /mgmt      | examples of management cluster configurations                             |
+| /cnf       | CNF examples                                                              |
 
 ## Development structure
 

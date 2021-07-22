@@ -11,3 +11,6 @@ resources:
 - 02b-oran-mh-netdevice-du.yaml
 - 02c-vran-mgmt-netdevice-cu.yaml
 - 02c-vran-mgmt-netdevice-du.yaml
+- 03a-oran-bh-sriov-node-network-policy.yaml
+- 03b-oran-bh-s1c-sriov-cu.yaml
+- 03b-oran-bh-s1u-sriov-cu.yaml

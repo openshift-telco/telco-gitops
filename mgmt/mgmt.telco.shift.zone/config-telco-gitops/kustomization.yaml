@@ -9,6 +9,3 @@ resources:
   - 00-telco-gitops-ns.yaml
   - 01-cli-job-sa-and-role.yaml
   - 02-hook-postsync-csv.yaml
-  - 05-telco-gitops-ztp.yaml
-  - 10-core-telco-base.yaml
-  - 10-core-telco-apps.yaml

@@ -18,7 +18,7 @@ spec:
             - /bin/bash
             - -c
             - |
-              echo "ArgoCD PreSync Hook"
+              echo "ArgoCD PostSync Hook"
               CSV_STATUS="Pausing $SLEEP seconds..."
               while [ "$CSV_STATUS" != "Succeeded" ]; do
                 echo "Waiting for the GitOps Operator to be ready. ($CSV_STATUS)"

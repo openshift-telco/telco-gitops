@@ -16,30 +16,28 @@ commonAnnotations:
 
 bases:
   # Common Operators
-  - ../../base/configs/all-common
+  - ../base/configs/all-common
   # Optimal BM profiles
-  - ../../blueprints/rwn
+  - ../blueprints/rwn
   # Operators for MGMT Clusters
-  # OpenShift GitOps
-  - ../../base/operators/openshift-gitops
+  - ../blueprints/mgmt
   # Hive
-  - ../../base/operators/hive
-  # Assisted Installer
-  - ../../base/operators/assisted-installer
-  # # Red Hat Advanced Cluster Manager for Kubernetes
-  # - ../../base/operators/advanced-cluster-management
-  # # OpenShift Container storage
-  # - ../../base/operators/openshift-container-storage
-  # # OpenShiftVirt
-  # - ../../base/operators/openshift-virtualization
-  # # Quay Enterprise
-  # - ../../base/operators/quay-enterprise-operator
+  # - ../base/operators/hive
+  # Red Hat Advanced Cluster Manager for Kubernetes
+  # - ../base/operators/advanced-cluster-management
+  # OpenShift Container storage
+  # - ../base/operators/openshift-container-storage
+  # OpenShiftVirt
+  # - ../base/operators/openshift-virtualization
+  # Quay Enterprise
+  # - ../base/operators/quay-enterprise-operator
   # OpenShift Logging
-  - ../../base/operators/openshift-logging
+  # - ../base/operators/openshift-logging
 
 resources:
+  - 01-master-create-lvs-for-lso.yaml
   - 02-lso-localvolume-lvs.yaml
   - 05-gitops-mgmt-telco-configs.yaml
 
-# patchesStrategicMerge:
-#   - 03-lso-filesystemclass-default.yaml
+patchesStrategicMerge:
+  - 03-lso-filesystemclass-default.yaml

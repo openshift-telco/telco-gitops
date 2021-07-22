@@ -1,7 +1,0 @@
----
-# This ZTP has dependency on a managemet cluster
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-commonAnnotations:
-  argocd.argoproj.io/sync-wave: "5"

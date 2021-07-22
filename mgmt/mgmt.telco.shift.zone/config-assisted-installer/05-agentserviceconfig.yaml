@@ -23,25 +23,25 @@ spec:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 30Gi
+        storage: 15Gi
   filesystemStorage:
     # storageClassName: lso-filesystemclass
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 30Gi
+        storage: 15Gi
   osImages:
     - openshiftVersion: "4.6"
       version: "46.82.202012051820-0"
       url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso"
       rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-live-rootfs.x86_64.img"
     - openshiftVersion: "4.7"
-      version: "47.83.202103251640-0"
-      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-4.7.7-x86_64-live.x86_64.iso"
-      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-live-rootfs.x86_64.img"
+      version: "47.83.202105220305-0"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-4.7.13-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-live-rootfs.x86_64.img"
     - openshiftVersion: "4.8"
-      # While pre-release, the latest public LiveISO and rootfs is from 4.7.7
-      version: "47.83.202103251640-0"
-      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-4.7.7-x86_64-live.x86_64.iso"
-      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.7/rhcos-live-rootfs.x86_64.img"
+      # While pre-release, the latest public LiveISO and rootfs is from 4.7.13
+      version: "47.83.202105220305-0"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-4.7.13-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-live-rootfs.x86_64.img"
