@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: net-toolbox
+  namespace: net-toolbox
+  labels:
+    myapp: net-toolbox
+spec:
+  selector:
+    matchLabels:
+      name: net-toolbox
+  template:
+    metadata:
+      labels:
+        name: net-toolbox
+    spec:
+      # hostPID: true
+      hostNetwork: true
+      serviceAccountName: net-toolbox-daemon
+      serviceAccount: net-toolbox-daemon
+      # tolerations:
+      # - key: node-role.kubernetes.io/master
+      #   effect: NoSchedule
+      # nodeSelector:
+      #   # Match only specific nodes requesting it:
+      #   #   oc label node worker-0 unsupported.example.com/net-toolbox=""
+      #   unsupported.shift.zone/net-toolbox: ""
+      containers:
+      - name: net-toolbox
+        image: quay.io/wcaban/net-toolbox:latest
+        # resources:
+        #   limits:
+        #     memory: 200Mi
+        #     cpu: 1000m
+        #   requests:
+        #     cpu: 100m
+        #     memory: 200Mi
+        securityContext:
+          privileged: true
+        command:
+          - /bin/bash
+          - -c
+          - sleep infinity
+        # env:
+        #   - name: key
+        #     value: value
+      terminationGracePeriodSeconds: 30
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+    # updateStrategy:
+    #   rollingUpdate:
+    #     maxUnavailable: 1
+    #   type: RollingUpdate
