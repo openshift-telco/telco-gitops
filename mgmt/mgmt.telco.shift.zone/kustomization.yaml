@@ -39,5 +39,5 @@ resources:
   - 02-lso-localvolume-lvs.yaml
   - 05-gitops-mgmt-telco-configs.yaml
 
-patchesStrategicMerge:
-  - 03-lso-filesystemclass-default.yaml
+# patchesStrategicMerge:
+#   - 03-lso-filesystemclass-default.yaml
