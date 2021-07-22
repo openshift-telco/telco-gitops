@@ -16,23 +16,23 @@ commonAnnotations:
 
 bases:
   # Common Operators
-  - ../base/configs/all-common
+  - ../../base/configs/all-common
   # Optimal BM profiles
   - ../blueprints/rwn
   # Operators for MGMT Clusters
-  - ../blueprints/mgmt
+  - ../../blueprints/mgmt
   # Hive
-  # - ../base/operators/hive
+  # - ../../base/operators/hive
   # Red Hat Advanced Cluster Manager for Kubernetes
-  # - ../base/operators/advanced-cluster-management
+  # - ../../base/operators/advanced-cluster-management
   # OpenShift Container storage
-  # - ../base/operators/openshift-container-storage
+  # - ../../base/operators/openshift-container-storage
   # OpenShiftVirt
-  # - ../base/operators/openshift-virtualization
+  # - ../../base/operators/openshift-virtualization
   # Quay Enterprise
-  # - ../base/operators/quay-enterprise-operator
+  # - ../../base/operators/quay-enterprise-operator
   # OpenShift Logging
-  # - ../base/operators/openshift-logging
+  # - ../../base/operators/openshift-logging
 
 resources:
   - 01-master-create-lvs-for-lso.yaml
