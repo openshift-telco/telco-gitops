@@ -7,15 +7,6 @@ metadata:
     name: assisted-installer
     openshift.io/cluster-monitoring: "true"
 ---
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
-  name: assisted-service
-  namespace: openshift-marketplace
-spec:
-  sourceType: grpc
-  image: quay.io/ocpmetal/assisted-service-index:latest
----
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
@@ -31,8 +22,8 @@ metadata:
   name: assisted-service-operator
   namespace: assisted-installer 
 spec:
-  channel: alpha
+  channel: ocm-2.3
   installPlanApproval: Automatic
   name: assisted-service-operator
-  source: assisted-service
+  source: community-operators
   sourceNamespace: openshift-marketplace

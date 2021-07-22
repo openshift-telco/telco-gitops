@@ -24,7 +24,7 @@ bases:
   # Hive
   # - ../../base/operators/hive
   # Red Hat Advanced Cluster Manager for Kubernetes
-  # - ../../base/operators/advanced-cluster-management
+  - ../../base/operators/advanced-cluster-management
   # OpenShift Container storage
   # - ../../base/operators/openshift-container-storage
   # OpenShiftVirt

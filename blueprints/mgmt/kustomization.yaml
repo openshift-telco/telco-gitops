@@ -11,7 +11,11 @@ bases:
   #####################################################
   # OpenShift GitOps
   - ../../base/operators/openshift-gitops
-  # Assisted Installer
+  # OpenShift Pipelines
+  - ../../base/operators/openshift-pipelines
+  # OpenShift Serverless
+  - ../../base/operators/openshift-serverless
+  # # Assisted Installer (now Infrastructre Operator)
   - ../../base/operators/assisted-installer
   # Red Hat Advanced Cluster Manager for Kubernetes
   # - ../../base/operators/advanced-cluster-management

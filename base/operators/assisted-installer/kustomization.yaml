@@ -4,6 +4,6 @@ kind: Kustomization
 
 resources:
 - 01-install.yaml
-- 03-clusterimageset-4.7.x.yaml
-- 03-clusterimageset-4.8.x.yaml
-- 03-clusterimageset-4.8.0-nightly.yaml
+# - 03-clusterimageset-4.7.x.yaml
+# - 03-clusterimageset-4.8.x.yaml
+# - 03-clusterimageset-4.8.0-nightly.yaml
