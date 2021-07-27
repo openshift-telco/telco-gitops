@@ -11,7 +11,7 @@ spec:
   clusterDeploymentRef:
     name: aci-sno1-telco-shift-zone
   imageSetRef:
-    name: openshift-v4.8.0-fc.6
+    name: openshift-v4.8.2
   networking:
     clusterNetwork:
       - cidr: "10.128.0.0/14"
