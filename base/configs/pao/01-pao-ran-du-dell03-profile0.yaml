@@ -1,0 +1,29 @@
+# Dell EMC PowerEdge XR12
+# 1x Intel Ice Lake 6338R
+---
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: ran-du-dell03-profile0
+spec:
+  cpu:
+    isolated: "4-31,36-63"
+    reserved: "0-3,32-35"
+  net:
+    userLevelNetworking: true
+    devices:
+    - interfaceName: "eno8*"
+    - interfaceName: "ens3*"
+    - interfaceName: "ens4*"
+  hugepages:
+    defaultHugepagesSize: "1G"
+    pages:
+    - size: "1G"
+      count: 16
+      node: 0
+  numa:
+    topologyPolicy: best-effort
+  realTimeKernel:
+    enabled: true
+  nodeSelector:
+    node-role.kubernetes.io/ran-du-dell03: ""
