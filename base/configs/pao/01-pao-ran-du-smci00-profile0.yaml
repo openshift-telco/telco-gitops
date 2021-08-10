@@ -1,0 +1,28 @@
+# SuperMicro SSC515-R407, MBD-X11SPW-TF-O Motherboard
+# 1x Intel Cascade Lake 6212U
+---
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: ran-du-smci00-profile0
+spec:
+  cpu:
+    isolated: "3-23,27-47"
+    reserved: "0-2,24-26"
+  net:
+    userLevelNetworking: true
+    devices:
+    - interfaceName: "eno*"
+    - interfaceName: "ens2f*"
+  hugepages:
+    defaultHugepagesSize: "1G"
+    pages:
+    - size: "1G"
+      count: 16
+      node: 0
+  numa:
+    topologyPolicy: best-effort
+  realTimeKernel:
+    enabled: true
+  nodeSelector:
+    node-role.kubernetes.io/ran-du-smci00: ""
