@@ -10,8 +10,9 @@ commonLabels:
 bases:
   # Enable SCTP
   - ../../base/configs/sctp
+  # Telco Optimizations
+  - ../../base/configs/telco-optimized
   # SRIOV
-  # - ../../base/operators/openshift-sriov-network-operator
-  # PAO (4.7)
+  - ../../base/operators/openshift-sriov-network-operator
+  # PAO
   - ../../base/operators/openshift-performance-addon-operator
-  # - ../../base/operators/openshift-performance-addon-operator-4.8

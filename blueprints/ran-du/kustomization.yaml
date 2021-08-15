@@ -6,6 +6,8 @@ commonLabels:
   telco-gitops/ran-du: telco-gitops
 
 bases:
+  # Common Telco Optimizations
+  - ../../base/configs/telco-optimized
   # Enable SCTP
   - ../../base/configs/sctp
   # SRIOV
@@ -20,6 +22,5 @@ bases:
   # - ../../configs/web-console
 
 resources:
-  - 01-max-pods-500.yaml
   - 02-ran-du-mcp.yaml
   - 50-ran-du-disable-chronyd.yaml

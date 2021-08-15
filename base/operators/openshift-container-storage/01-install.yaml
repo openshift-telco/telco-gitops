@@ -21,7 +21,7 @@ metadata:
   name: ocs-subscription
   namespace: openshift-storage
 spec:
-  channel: "stable-4.7"
+  channel: "stable-4.8"
   installPlanApproval: Automatic
   name: ocs-operator
   # Modify source name of the catalogsource for isolated network deployments

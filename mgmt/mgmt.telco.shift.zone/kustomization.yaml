@@ -17,8 +17,6 @@ commonAnnotations:
 bases:
   # Common Operators
   - ../../base/configs/all-common
-  # Optimal BM profiles
-  - ../../blueprints/rwn
   # Operators for MGMT Clusters
   - ../../blueprints/mgmt
   # Hive

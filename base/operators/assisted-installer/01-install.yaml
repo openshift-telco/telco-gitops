@@ -22,7 +22,7 @@ metadata:
   name: assisted-service-operator
   namespace: assisted-installer
 spec:
-  channel: alpha
+  channel: ocm-2.3
   installPlanApproval: Automatic
   name: assisted-service-operator
   source: community-operators

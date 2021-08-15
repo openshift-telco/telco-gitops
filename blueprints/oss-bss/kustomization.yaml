@@ -6,8 +6,9 @@ commonLabels:
   telco-gitops/oss-bss: telco-gitops
 
 bases:
+  # Telco Optimizations
+  - ../../base/configs/telco-optimized
   # OpenShift ServiceMesh
   - ../../base/operators/openshift-service-mesh
-  # PAO (4.7)
+  # PAO
   # - ../../base/operators/openshift-performance-addon-operator
-  # - ../../base/operators/openshift-performance-addon-operator-4.8

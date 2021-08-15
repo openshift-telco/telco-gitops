@@ -1,0 +1,8 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- 02-agentserviceconfig-EXAMPLE.yaml
+# - 04-ai-pull-secret-EXAMPLE.yaml
+# - 05-mirror-registry-ca-EXAMPLE.yaml
