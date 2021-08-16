@@ -8,9 +8,11 @@ commonLabels:
 bases:
   # Enable SCTP
   - ../../base/configs/sctp
+  # RWN Configs
+  - ../../base/configs/telco-optimized
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
-  # PAO (4.7)
+  # PAO
   - ../../base/operators/openshift-performance-addon-operator
   # PTP
   - ../../base/operators/openshift-ptp
@@ -20,7 +22,6 @@ bases:
   # - ../../configs/web-console
 
 resources:
-  - 01-max-pods-500.yaml
   - 02-ran-du-mcp.yaml
   - 50-ran-du-disable-chronyd.yaml
   # TODO: replace by ks8 job

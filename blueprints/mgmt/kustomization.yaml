@@ -9,6 +9,8 @@ bases:
   #####################################################
   # Operators for MGMT Clusters
   #####################################################
+  # Common Telco Optimizations
+  - ../../base/configs/telco-optimized
   # OpenShift GitOps
   - ../../base/operators/openshift-gitops
   # OpenShift Pipelines

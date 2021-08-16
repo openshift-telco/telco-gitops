@@ -1,28 +1,13 @@
 ---
-### Create Catalog Source with prerelease image
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
-  name: performance-addon-operator
-  namespace: openshift-marketplace
-spec:
-  displayName: Openshift Performance Addon Operator
-  icon:
-    base64data: ""
-    mediatype: ""
-  image: quay.io/openshift-kni/performance-addon-operator-index:4.8-snapshot
-  publisher: Red Hat
-  sourceType: grpc
----
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: performance-addon-operator-subscription
+  name: performance-addon-operator
   namespace: openshift-operators
 spec:
   channel: "4.8"
   installPlanApproval: Automatic
   name: performance-addon-operator
   # Modify source name of the catalogsource for air-gapped deployments
-  source:  performance-addon-operator
+  source:  redhat-operators
   sourceNamespace: openshift-marketplace

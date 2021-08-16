@@ -8,4 +8,5 @@ commonLabels:
 resources:
 - 00-master-schedulable.yaml
 - 01-config-ingress.yaml
+- 01-max-pods-500.yaml
 - 50-worker-fix-ipi-rwn.yaml

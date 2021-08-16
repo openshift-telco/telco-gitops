@@ -6,8 +6,8 @@ commonLabels:
   telco-gitops/ran-du-sno: telco-gitops
 
 bases:
-  # Use ran-du-4.8 as base
-  - ../ran-du-4.8
+  # Use ran-du as base
+  - ../ran-du
 
 resources:
   - 01-mcp.yaml

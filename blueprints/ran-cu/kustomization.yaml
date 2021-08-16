@@ -6,11 +6,13 @@ commonLabels:
   telco-gitops/ran-cu: telco-gitops
 
 bases:
+  # Common Telco Optimizations
+  - ../../base/configs/telco-optimized
   # Enable SCTP
   - ../../base/configs/sctp
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
-  # PAO (4.7)
+  # PAO
   - ../../base/operators/openshift-performance-addon-operator
   # OpenShift Virtualization (if using VNFs)
   # - ../../base/operators/openshift-virtualization
