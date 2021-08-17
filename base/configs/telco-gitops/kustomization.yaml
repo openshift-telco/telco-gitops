@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - 00-telco-gitops-ns.yaml
+  - 01-cli-job-sa-and-role.yaml
+  - 02-telco-gitops-custom-role.yaml
+  # WARNING: THIS MAKES THE ArgoCD instance cluster-admin
+  # DO NOT USE INSTANCE FOR GENERAL USERS
+  - 03-telco-gitops-cluster-admin.yaml
+  # telco-gitops ArgoCD instance
+  - 05-argocd-telco-gitops.yaml

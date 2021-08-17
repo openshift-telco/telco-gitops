@@ -11,7 +11,7 @@ metadata:
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: local-operator-group
+  name: openshift-local-storage
   namespace: openshift-local-storage
 spec:
   targetNamespaces:
@@ -20,7 +20,7 @@ spec:
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: local-storage-operator
+  name: openshift-local-storage-operator
   namespace: openshift-local-storage
 spec:
   channel: "4.8"

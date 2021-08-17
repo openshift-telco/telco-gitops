@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
 - 01-install.yaml
-- 02-lso-auto-discovery-devices.yaml
+# - 02-lso-auto-discovery-devices.yaml

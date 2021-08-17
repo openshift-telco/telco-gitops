@@ -5,6 +5,10 @@ metadata:
   name: openshift-gitops-operator
   namespace: openshift-operators
 spec:
+  config:
+    env:
+    - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+      value: openshift-gitops, telco-gitops
   channel: "stable"
   installPlanApproval: Automatic
   name: openshift-gitops-operator

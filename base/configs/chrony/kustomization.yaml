@@ -3,5 +3,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- 50-master-chrony-conf.yaml
-- 50-worker-chrony-conf.yaml
+- 30-master-chrony-conf.yaml
+- 30-worker-chrony-conf.yaml

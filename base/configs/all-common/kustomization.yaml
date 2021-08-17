@@ -7,8 +7,10 @@ commonLabels:
 
 bases:
   # Configure chrony
-  - ../chrony
+  # - ../chrony
   # Identity Provider (htpasswd)
   - ../idp-htpasswd
   # local storage operator
   - ../../operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../lso
