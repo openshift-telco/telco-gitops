@@ -6,7 +6,7 @@ The Telco management cluster *MUST* be OpenShift 4.8.x or higher and *MUST* be d
 
 These method are the *ONLY* methods that deploy and configure the `cluster-baremetal-operator` in the cluster which is a requirement for some of the ZTP automation flows.
 
-**NOTE:** Due to `BZ-1953979` the minimum version for mgmt cluster is `4.8.0-0.nightly-2021-05-31-085539`
+**NOTE:** Due to `BZ-1953979` the minimum version for mgmt cluster is a stable `4.8.x` release.
 
 ## EXAMPLES
 
