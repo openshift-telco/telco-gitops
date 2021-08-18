@@ -5,7 +5,7 @@ kind: Kustomization
 commonAnnotations:
   # Annotations to work around automatically generated resoruces
   # to avoid ArgoCD reporing out-of-sync
-  argcd.argoproj.io/compare-options: IgnoreExtraneous
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
   argocd.argoproj.io/sync-options: Prune=false
 
 resources:
