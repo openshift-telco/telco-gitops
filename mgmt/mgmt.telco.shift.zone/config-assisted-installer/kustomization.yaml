@@ -1,9 +1,0 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-resources:
-  - 00-hook-presync-csv.yaml
-  - 05-agentserviceconfig.yaml
-  # - 05-assisted-pull-secret-UPDATETHIS.yaml
-  - 06-bmc-telco-kvm02-sushy.yaml
