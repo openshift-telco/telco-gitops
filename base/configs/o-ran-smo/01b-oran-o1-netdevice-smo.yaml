@@ -1,0 +1,28 @@
+---
+###############################################################################
+# SR-IOV Network Definition for the NS of the workload
+# oran-o1 + vlan 2015 + oran_smo_netdevice
+# O1: Interface between management entities in Service Management and 
+#     Orchestration Framework and O-RAN managed elements, for operation and 
+#     management, by which FCAPS management shall be achieved.
+###############################################################################
+# NS = cnf-smo
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: oran-o1
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_smo_netdevice
+  # Namespace with the SMO workload
+  networkNamespace: cnf-smo
+  vlan: 2015
+  ipam: |-
+    {"type": "static"}
+  linkState: auto
+  # spoofChk: "<spoof_check>"
+  # maxTxRate: <max_tx_rate>
+  # minTxRate: <min_rx_rate>
+  vlanQoS: 0
+  # trust: "<trust_vf>"
+  # capabilities: <capabilities>
