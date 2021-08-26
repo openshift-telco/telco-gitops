@@ -1,0 +1,26 @@
+---
+###############################################################################
+# SR-IOV Network Definition for the NS of the workload
+# oran-m-plane + vlan 2016 + oran_smo_netdevice
+# m-plane: Interface between SMO and O-RU
+###############################################################################
+# NS = cnf-smo
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: oran-m-plane
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_smo_netdevice
+  # Namespace with the SMO workload
+  networkNamespace: cnf-smo
+  vlan: 2017
+  ipam: |-
+    {"type": "static"}
+  linkState: auto
+  # spoofChk: "<spoof_check>"
+  # maxTxRate: <max_tx_rate>
+  # minTxRate: <min_rx_rate>
+  vlanQoS: 2
+  # trust: "<trust_vf>"
+  # capabilities: <capabilities>

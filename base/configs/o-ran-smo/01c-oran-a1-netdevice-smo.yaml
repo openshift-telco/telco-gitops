@@ -1,0 +1,28 @@
+---
+###############################################################################
+# SR-IOV Network Definition for the NS of the workload
+# oran-a1 + vlan 2016 + oran_smo_netdevice
+# A1: Interface between non-RT RIC and near-RT RIC.
+#     Over this interface non-RT RIC performs policy management, enrichment
+#     information and AI/ML model updates on the near-RT RIC.
+###############################################################################
+# NS = cnf-smo
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: oran-a1
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_smo_netdevice
+  # Namespace with the SMO workload
+  networkNamespace: cnf-smo
+  vlan: 2016
+  ipam: |-
+    {"type": "static"}
+  linkState: auto
+  # spoofChk: "<spoof_check>"
+  # maxTxRate: <max_tx_rate>
+  # minTxRate: <min_rx_rate>
+  vlanQoS: 0
+  # trust: "<trust_vf>"
+  # capabilities: <capabilities>

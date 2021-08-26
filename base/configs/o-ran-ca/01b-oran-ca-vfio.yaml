@@ -1,0 +1,25 @@
+---
+###############################################################################
+# SR-IOV Network Definition for the NS of the workload
+# oran-ca-vfio + vlan 2002 + oran_ca_vfio
+###############################################################################
+# NS = cnf-du
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: oran-ca-vfio
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_ca_vfio
+  # Namespace with the DU workload
+  networkNamespace: cnf-du
+  vlan: 2002
+  ipam: |-
+    {}
+  linkState: auto
+  # spoofChk: "<spoof_check>"
+  # maxTxRate: <max_tx_rate>
+  # minTxRate: <min_rx_rate>
+  vlanQoS: 7
+  # trust: "<trust_vf>"
+  # capabilities: <capabilities>

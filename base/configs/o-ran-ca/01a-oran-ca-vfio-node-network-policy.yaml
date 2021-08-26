@@ -1,0 +1,23 @@
+---
+###############################################################################
+# Interface used for CoMP/Carrier Aggregation
+# This is DU to DU communication in same site (can use the MH or FH ports)
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: oran-ca-vfio
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: oran_ca_vfio
+  nodeSelector:
+    ran.openshift.io/sriov: ""
+    ran.openshift.io/oran-ca-vfio: ""
+  deviceType: vfio-pci
+  priority: 10
+  #mtu: 1500
+  numVfs: 8
+  nicSelector:
+    vendor: "8086"
+    deviceID: "158b"
+    pfNames:
+      - ens1f0#6-7
