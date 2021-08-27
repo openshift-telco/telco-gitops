@@ -84,6 +84,12 @@ spec:
       kinds:
       - TaskRun
       - PipelineRun
+    - apiGroups:
+      - internal.open-cluster-management.io
+      clusters:
+      - '*'
+      kinds:
+      - ManagedClusterInfo
   server:
     autoscale:
       enabled: false
