@@ -6,6 +6,14 @@ commonLabels:
   telco-gitops/ran-du: telco-gitops
 
 bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  # - ../../base/configs/idp-htpasswd
+  # local storage operator
+  - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../../base/configs/lso
   # Common Telco Optimizations
   - ../../base/configs/telco-optimized
   # Enable SCTP
@@ -22,5 +30,5 @@ bases:
   # - ../../configs/web-console
 
 resources:
-  - 02-ran-du-mcp.yaml
+  # - 02-ran-du-mcp.yaml
   - 50-ran-du-disable-chronyd.yaml

@@ -5,12 +5,15 @@ kind: Kustomization
 commonLabels:
   telco-common: telco-gitops
 
-bases:
+# NOTE: This is maintained for backwards compatibility of existing
+#       blueprint while migrations are completed
+
+# bases:
   # Configure chrony
   # - ../chrony
   # Identity Provider (htpasswd)
-  - ../idp-htpasswd
+  # - ../idp-htpasswd
   # local storage operator
-  - ../../operators/local-storage-operator
+  # - ../../operators/local-storage-operator
   # LSO auto-discovery label
-  - ../lso
+  # - ../lso

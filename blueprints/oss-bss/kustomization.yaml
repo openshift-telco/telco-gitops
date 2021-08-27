@@ -6,6 +6,14 @@ commonLabels:
   telco-gitops/oss-bss: telco-gitops
 
 bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  # - ../../base/configs/idp-htpasswd
+  # local storage operator
+  - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../../base/configs/lso
   # Telco Optimizations
   - ../../base/configs/telco-optimized
   # OpenShift ServiceMesh

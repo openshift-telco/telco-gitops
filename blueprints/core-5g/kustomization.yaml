@@ -8,6 +8,14 @@ commonLabels:
 # NOTE: This node definition
 
 bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  # - ../../base/configs/idp-htpasswd
+  # local storage operator
+  - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../../base/configs/lso
   # Enable SCTP
   - ../../base/configs/sctp
   # Telco Optimizations

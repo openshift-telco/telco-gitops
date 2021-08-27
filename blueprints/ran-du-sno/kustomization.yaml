@@ -9,8 +9,10 @@ bases:
   # Use ran-du as base
   - ../ran-du
 
-resources:
-  - 01-mcp.yaml
+## NOTE: This needs to be fix
 
-patches:
-- 01-patch-mcp-master.yaml
+# resources:
+#   - 01-mcp.yaml
+
+# patches:
+# - 01-patch-mcp-master.yaml

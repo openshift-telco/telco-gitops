@@ -6,6 +6,14 @@ commonLabels:
   telco-gitops/combined-core-ran: telco-gitops
 
 bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  # - ../../base/configs/idp-htpasswd
+  # local storage operator
+  - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../../base/configs/lso
   # Enable SCTP
   - ../../base/configs/sctp
   # RWN Configs
@@ -17,16 +25,16 @@ bases:
   # PTP
   - ../../base/operators/openshift-ptp
   # Intel vRAN Acceleration Operators
-  # - ../../base/operators/vran-acceleration-operators
+  - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console
   # - ../../configs/web-console
 
 resources:
-  - 02-ran-du-mcp.yaml
+  # - 02-ran-du-mcp.yaml
   - 50-ran-du-disable-chronyd.yaml
-  # TODO: replace by ks8 job
-  - 01-mcp.yaml
+#   # TODO: replace by ks8 job
+#   - 01-mcp.yaml
 
-patches:
-# TODO: replace by k8s job
-- 01-patch-mcp-master.yaml
+# patches:
+# # TODO: replace by k8s job
+# - 01-patch-mcp-master.yaml
