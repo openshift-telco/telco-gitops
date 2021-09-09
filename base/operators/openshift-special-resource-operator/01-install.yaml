@@ -9,7 +9,7 @@ kind: OperatorGroup
 metadata:
  name: special-resource-operators
  namespace: openshift-special-resource-operator
-spec:
+spec: {}
 # targetNamespaces:
 #   - openshift-special-resource-operator
 ---
