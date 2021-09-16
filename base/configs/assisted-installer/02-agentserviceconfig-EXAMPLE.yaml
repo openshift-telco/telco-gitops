@@ -24,13 +24,16 @@ spec:
   osImages:
     - openshiftVersion: "4.6"
       version: "46.82.202012051820-0"
+      cpuArchitecture: x86_64      
       url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso"
       rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-live-rootfs.x86_64.img"
     - openshiftVersion: "4.7"
       version: "47.83.202105220305-0"
+      cpuArchitecture: x86_64      
       url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-live.x86_64.iso"
       rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.7/4.7.13/rhcos-live-rootfs.x86_64.img"
     - openshiftVersion: "4.8"
       version: "48.84.202107202156-0"
+      cpuArchitecture: x86_64      
       url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.8/4.8.2/rhcos-live.x86_64.iso"
       rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.8/4.8.2/rhcos-live-rootfs.x86_64.img"
