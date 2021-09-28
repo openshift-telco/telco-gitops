@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: openshift-special-resource-operator
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+ name: special-resource-operators
+ namespace: openshift-special-resource-operator
+spec: {}
+# targetNamespaces:
+#   - openshift-special-resource-operator
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+ name: sro-operator-subscription
+ namespace: openshift-special-resource-operator
+spec:
+ channel: alpha
+ source: community-operators
+ name: special-resource-operator
+ sourceNamespace: openshift-marketplace
