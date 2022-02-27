@@ -23,7 +23,7 @@ metadata:
   name: openshift-local-storage-operator
   namespace: openshift-local-storage
 spec:
-  channel: "4.8"
+  channel: "stable"
   installPlanApproval: Automatic
   name: local-storage-operator
   # Modify source name of the catalogsource for isolated network deployments
